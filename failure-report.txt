@@ -1,0 +1,57 @@
+Failing on Adam's laptop to launch mc from runClient:
+
+> Configure project :
+Java: 17.0.2 JVM: 17.0.2+8-LTS-86(Oracle Corporation) Arch: amd64
+
+> Task :runClient
+2022-07-24 11:51:58,382 main WARN Advanced terminal features are not available in this environment
+[11:51:58] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 1.19, --assetsDir, C:\Users\thing\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 41.0.38, --fml.mcVersion, 1.19, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20220607.102129]
+[11:51:58] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 10.0.8+10.0.8+main.0ef7e830 starting: java version 17.0.2 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[11:51:58] [main/DEBUG] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Found launch services [fmlclientdev,forgeclient,minecraft,forgegametestserverdev,fmlserveruserdev,fmlclient,fmldatauserdev,forgeserverdev,forgeserveruserdev,forgeclientdev,forgeclientuserdev,forgeserver,forgedatadev,fmlserver,fmlclientuserdev,fmlserverdev,forgedatauserdev,testharness,forgegametestserveruserdev]
+[11:51:58] [main/DEBUG] [cp.mo.mo.NameMappingServiceHandler/MODLAUNCHER]: Found naming services : [srgtomcp]
+<============-> 92% EXECUTING [4s]
+> :runClient
+Exception in thread "main" java.lang.IllegalAccessError: class cpw.mods.modlauncher.util.ServiceLoaderUtils (in module cpw.mods.modlauncher) cannot access class cpw.mods.niofs.union.UnionFileSystem (in module cpw.mods.securejarhandler) because module cpw.mods.securejarhandler does not export cpw.mods.niofs.union to module cpw.mods.modlauncher
+        at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.8/cpw.mods.modlauncher.util.ServiceLoaderUtils.lambda$fileNameFor$2(ServiceLoaderUtils.java:52)
+        at java.base/java.util.Optional.map(Optional.java:260)
+        at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.8/cpw.mods.modlauncher.util.ServiceLoaderUtils.fileNameFor(ServiceLoaderUtils.java:52)
+        at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.8/cpw.mods.modlauncher.LaunchPluginHandler.lambda$new$2(LaunchPluginHandler.java:50)
+        at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+        at java.base/java.util.HashMap$EntrySpliterator.forEachRemaining(HashMap.java:1850)
+        at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+        at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+        at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:575)
+        at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:260)
+        at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:616)
+        at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:622)
+        at java.base/java.util.stream.ReferencePipeline.toList(ReferencePipeline.java:627)
+        at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.8/cpw.mods.modlauncher.LaunchPluginHandler.<init>(LaunchPluginHandler.java:51)
+        at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.8/cpw.mods.modlauncher.Launcher.<init>(Launcher.java:64)
+        at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.8/cpw.mods.modlauncher.Launcher.main(Launcher.java:77)
+        at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.8/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
+        at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.8/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
+        at cpw.mods.bootstraplauncher@1.1.0/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:155)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runClient'.
+> Process 'command 'C:\Program Files\Java\jdk-17.0.2\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+> Task :runClient FAILED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+10 actionable tasks: 3 executed, 7 up-to-date
+Could not execute build using connection to Gradle distribution 'https://services.gradle.org/distributions/gradle-7.3-bin.zip'.
+ *  The terminal process terminated with exit code: 1.
